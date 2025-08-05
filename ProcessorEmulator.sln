@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessorEmulator", "ProcessorEmulator\ProcessorEmulator.csproj", "{3AE890D6-156B-47D3-BB59-E442920119EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessorEmulator.Compiler", "ProcessorEmulator.Compiler\ProcessorEmulator.Compiler.csproj", "{9CAF46A7-3FED-4416-8894-A421D5E5FD10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AE890D6-156B-47D3-BB59-E442920119EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AE890D6-156B-47D3-BB59-E442920119EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AE890D6-156B-47D3-BB59-E442920119EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AE890D6-156B-47D3-BB59-E442920119EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CAF46A7-3FED-4416-8894-A421D5E5FD10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CAF46A7-3FED-4416-8894-A421D5E5FD10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CAF46A7-3FED-4416-8894-A421D5E5FD10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CAF46A7-3FED-4416-8894-A421D5E5FD10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

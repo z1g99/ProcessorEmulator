@@ -1,0 +1,8 @@
+﻿    mvi a, 0   ;clear accumulator
+    mvi b, 12  ;load decimal 12 into B
+    mvi c, 8   ;preset counter with 8
+repeat:
+    add b       ;add decimal 12
+    dcr c       ;decrement the counter
+    jnz repeat  ;test for zero
+    hlt         ;stop it
