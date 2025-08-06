@@ -1,0 +1,27 @@
+﻿    mvi b, 0    ;b - multiplicand
+    mvi c, 8    ;c - multiplier
+    mvi d, 13   ;d - result
+    
+    mov a, c    ;a = multiplier
+loop:
+    cpi 0       ;multiplier == 0
+    jz done     ;if multiplier == 0: done
+    ani 1       ;multiplier &= 1
+    jz shift    ;if multiplier is even: shift
+    mov a, d    ;result += multiplicand
+    add b
+    mov d, a
+shift:
+    stc         ;reset cy
+    cmc
+    mov a, b    ;multiplicand <<= 1
+    ral
+    mov b, a
+    stc         ;reset cy
+    cmc
+    mov a, c    ;multiplier >>= 1
+    rar
+    mov c, a
+    jmp loop
+done:
+    hlt
