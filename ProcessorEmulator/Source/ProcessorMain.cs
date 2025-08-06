@@ -67,7 +67,7 @@ public partial class Processor
         Console.WriteLine("File loaded successfully.");
     }
 
-    public void Run(string filePath, int frequency, bool debug)
+    public void Run(string filePath, int frequency, bool debug, bool everyTick)
     {
         LoadFile(filePath);
         
@@ -99,7 +99,7 @@ public partial class Processor
             
             if (debug)
             {
-                Debug(operationStopwatch);
+                Debug(operationStopwatch, everyTick);
             }
 
             if (_tState == 32 || _instructionEnd) // 5 bits
@@ -117,24 +117,26 @@ public partial class Processor
         Console.WriteLine($"Processing completed successfully (in {programStopwatch.ElapsedMilliseconds} ms.)");
     }
 
-    private void Debug(Stopwatch stopwatch)
+    private void Debug(Stopwatch stopwatch, bool everyTick)
     {
         _ticks++;
-        
-        Console.WriteLine($"t: {_tState.ToString("D2")} " +
-                          $"a: {_alu.Accumulator.HexValue} " +
-                          $"tmp: {_alu.TmpRegister.HexValue} " +
-                          $"f: {_alu.FlagsRegister.BinValue} " +
-                          $"bc: {_bRegister.HexValue}{_cRegister.HexValue} " +
-                          $"de: {_dRegister.HexValue}{_eRegister.HexValue} " +
-                          $"hl: {_hRegister.HexValue}{_lRegister.HexValue} " +
-                          $"pc: {_programCounter.HexValue} " +
-                          $"sp: {_stackPointer.HexValue} " +
-                          $"mdr: {_memoryDataRegister.HexValue} " +
-                          $"mar: {_memoryAddressRegister.HexValue} " +
-                          $"ir: {_instructionRegister.HexValue} " +
-                          $"tick: {_ticks} | " +
-                          $"{stopwatch.ElapsedTicks * 1000000000 / Stopwatch.Frequency} ns");
+        if (_instructionEnd || everyTick)
+        {
+            Console.WriteLine($"t: {_tState.ToString("D2")} " +
+                              $"a: {_alu.Accumulator.HexValue} " +
+                              $"tmp: {_alu.TmpRegister.HexValue} " +
+                              $"f: {_alu.FlagsRegister.BinValue} " +
+                              $"bc: {_bRegister.HexValue}{_cRegister.HexValue} " +
+                              $"de: {_dRegister.HexValue}{_eRegister.HexValue} " +
+                              $"hl: {_hRegister.HexValue}{_lRegister.HexValue} " +
+                              $"pc: {_programCounter.HexValue} " +
+                              $"sp: {_stackPointer.HexValue} " +
+                              $"mdr: {_memoryDataRegister.HexValue} " +
+                              $"mar: {_memoryAddressRegister.HexValue} " +
+                              $"ir: {_instructionRegister.HexValue} " +
+                              $"tick: {_ticks}\t| " +
+                              $"{stopwatch.ElapsedTicks * 1000000000 / Stopwatch.Frequency} ns");
+        }
     }
 
     private void Decoder()
