@@ -1,6 +1,6 @@
-﻿    mvi b, 13    ;b - multiplicand
+﻿    mvi b, 13   ;b - multiplicand
     mvi c, 8    ;c - multiplier
-    mvi d, 0   ;d - result
+    mvi d, 0    ;d - result
     
     mov a, c    ;a = multiplier
 loop:
