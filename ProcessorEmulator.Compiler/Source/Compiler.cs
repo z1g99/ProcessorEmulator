@@ -25,8 +25,12 @@ public class Compiler
             for (_lineNum = 1; _line != null; _lineNum++)
             {
                 ClearString();
-                
-                if (_line[^1] == ':') // label
+
+                if (_line == "") // empty line
+                {
+                    _line = _sr.ReadLine();
+                }
+                else if (_line[^1] == ':') // label
                 {
                     var label = _line[..^1]; // without last char
 
@@ -82,7 +86,7 @@ public class Compiler
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"{ex.GetType()}: {ex.Message}");
+            Console.WriteLine($"Exception: {ex.Message}");
         }
         finally
         {
@@ -549,43 +553,43 @@ public class Compiler
                 LoadTwoBytes(opcode, data8);
                 break;
             case "adi":
-                GetTwoArguments(instruction, out arg1, out arg2);
-                data8 = ConvertToByte(arg2);
+                GetOneArgument(instruction, out arg);
+                data8 = ConvertToByte(arg);
                 LoadTwoBytes(0xc6, data8);
                 break;
             case "sui":
-                GetTwoArguments(instruction, out arg1, out arg2);
-                data8 = ConvertToByte(arg2);
+                GetOneArgument(instruction, out arg);
+                data8 = ConvertToByte(arg);
                 LoadTwoBytes(0xd6, data8);
                 break;
             case "ani":
-                GetTwoArguments(instruction, out arg1, out arg2);
-                data8 = ConvertToByte(arg2);
+                GetOneArgument(instruction, out arg);
+                data8 = ConvertToByte(arg);
                 LoadTwoBytes(0xe6, data8);
                 break;
             case "ori":
-                GetTwoArguments(instruction, out arg1, out arg2);
-                data8 = ConvertToByte(arg2);
+                GetOneArgument(instruction, out arg);
+                data8 = ConvertToByte(arg);
                 LoadTwoBytes(0xf6, data8);
                 break;
             case "aci":
-                GetTwoArguments(instruction, out arg1, out arg2);
-                data8 = ConvertToByte(arg2);
+                GetOneArgument(instruction, out arg);
+                data8 = ConvertToByte(arg);
                 LoadTwoBytes(0xce, data8);
                 break;
             case "sbi":
-                GetTwoArguments(instruction, out arg1, out arg2);
-                data8 = ConvertToByte(arg2);
+                GetOneArgument(instruction, out arg);
+                data8 = ConvertToByte(arg);
                 LoadTwoBytes(0xde, data8);
                 break;
             case "xri":
-                GetTwoArguments(instruction, out arg1, out arg2);
-                data8 = ConvertToByte(arg2);
+                GetOneArgument(instruction, out arg);
+                data8 = ConvertToByte(arg);
                 LoadTwoBytes(0xee, data8);
                 break;
             case "cpi":
-                GetTwoArguments(instruction, out arg1, out arg2);
-                data8 = ConvertToByte(arg2);
+                GetOneArgument(instruction, out arg);
+                data8 = ConvertToByte(arg);
                 LoadTwoBytes(0xfe, data8);
                 break;
             // 3 bytes instructions

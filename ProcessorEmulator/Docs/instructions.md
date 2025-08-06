@@ -1,4 +1,4 @@
-﻿Б? -> MAR; RDM; MDR -> ? ✅  
+﻿? -> MAR; RDM; MDR -> ? ✅  
 ? -> MAR; ? -> MDR; WDM ❌
 
 # Fetch cycle
@@ -190,7 +190,7 @@ T<sub>3</sub> - ALU -> A
 desc: Increment/decrement reg  
 flags: SZP
 
-T<sub>3</sub> - reg -> TMP
+T<sub>3</sub> - reg -> TMP  
 T<sub>4</sub> - TMP++/TMP--; TMP -> reg
 
 If indirect:
